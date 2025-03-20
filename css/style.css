@@ -1,0 +1,153 @@
+/*Завантажені шрифти*/
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('../fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype'),
+         url('../fonts/RobotoSlab-VariableFont_wght.svg') format('svg'),
+         url('../fonts/RobotoSlab-VariableFont_wght.woff') format('woff'),
+         url('../fonts/RobotoSlab-VariableFont_wght.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-VariableFont_wght.ttf') format(truetype);
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'RobotoSlab', sans-serif;
+    background-color: #f7f7f7;
+    color: #324950;
+}
+/*--Header--*/
+/*bg*/
+.baner {
+    background: url('../images/bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 850px;
+    position: relative;
+}
+/*-Пошук-*/
+.search-input, .search-btn {
+    border: none; 
+    outline: none; 
+    background-color: transparent; /* Прозорий фон */
+}
+.search-container {
+    display: inline-block;
+    width: auto;
+    border-bottom: 2px solid #324950; /* Лінія під полем пошуку та кнопкою */
+}
+.search-input {
+    padding: 8px;
+    padding-bottom: 0px;
+    width: auto; 
+}
+/*Підказка для пошуку*/
+.search-input::placeholder {
+    color: #324950;
+    opacity: 1;
+}
+.search-btn {
+    padding: 8px;
+}
+/*Активне вікно пошуку*/
+.search-input:focus{
+    background-color: transparent;
+    box-shadow: none;
+}
+/*Menu*/
+.nav-link{
+    font-family: 'Heebo';
+    font-size: 1.1rem;
+    font-weight: medium;
+    color: #324950;
+    padding: 0.5rem;
+}
+/* Контейнер для тексту */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.banner-text h1 {
+    color: #735440;
+    font-size: 3rem;
+    font-weight: bold;
+}
+/*--Products--*/
+.image-text p {
+    font-size: 1.2rem;
+}
+.bg-white {
+    padding-top: 1.5rem;
+    background-color: #ffffff;
+}
+/*--Vision Mision--*/
+.vision-mision{
+    background: url('../images/Union.png') no-repeat center center;
+    background-size: cover;
+}
+.vision-mision h2, .activites h2{
+    font-size: 64px;
+    font-weight: bolder;
+}
+/*Візуальний елемент ххххх*/
+.xxxxx{
+    font-family: 'Arial';
+    font-size: medium;
+    font-weight: bold;
+    color: #57984c;
+    margin: 16px 0px;
+    /*Щоб текст не вибирався*/
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    letter-spacing: 2px;/*Міжсимвольний інтервал*/
+}
+
+/*Main Activites*/
+.activites{
+    background-color: #ededed;
+    padding: 1.5rem 0rem;
+}
+.activites img{
+    height: 200px;
+    object-fit: contain;
+}
+.text-line{
+    border-bottom: 3px solid #57984c;
+    padding: 0px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+.activites h3{
+    color: #57984c;
+    margin: 2rem;
+    font-weight: bold;
+    font-size: x-large;
+}
+/*Footer*/
+footer {
+    background: #324950;
+    color:#ffffff;
+  /*  padding-bottom: 2rem;*/
+}
+footer .nav-link{
+    font-family: 'Heebo';
+    font-size: 1.1rem;
+    font-weight: medium;
+    color: #ffffff;
+    padding: 0.5rem;
+}
+.contacts{
+    background: #2d3f45;
+    padding: 2rem;
+}
+.cont{
+    margin: 0px 17%;
+}

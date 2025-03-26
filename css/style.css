@@ -25,7 +25,7 @@ body {
     background: url('../images/bg.jpg') no-repeat center center;
     background-size: cover;
     height: 850px;
-    position: relative;
+    position: relative;/*Для розміження тексту по центру*/
 }
 /*-Пошук-*/
 .search-input, .search-btn {
@@ -94,6 +94,10 @@ body {
 }
 .title-text{
     font-size: 64px;
+    font-weight: bolder;
+}
+.title-m{
+    font-size: 54px;
     font-weight: bolder;
 }
 .title-s{
@@ -202,3 +206,75 @@ footer .nav-link{
     font-weight: medium;
 }
 /*----*/
+/*----Tomato one----*/
+.tomato-bg {
+    background-image: url('../images/tm_bg.png'); 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    
+    /*background-size: cover;*/
+}
+.green{
+    color: #57984c;
+}
+.red{
+    color: #cf2333;
+}
+.section-title {
+    font-weight: bold;
+    color: #57984c; /* Зелений колір */
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 183px; /* Довжина лінії */
+    height: 2px;
+    background-color: #57984c;
+    margin-top: 5px;
+    margin-bottom: 1rem;
+}
+.charact ul li::marker {
+    color: #3f7c42;
+}
+.charact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Відступ між елементами */
+}
+.charact{
+    margin-bottom: 10rem;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center; /* Вирівнює іконку та текст по центру */
+    justify-content: center; /* Вирівнює контент кнопки */
+    border: 2px solid #3f7c42; /* Зелена обводка */
+    color: #3f7c42; /* Зелений текст */
+    border-radius: 50px; /* Овальна форма */
+    padding: 10px 20px; /* Відступи */
+    font-weight: bold;
+    text-decoration: none;
+    background-color: white;
+}
+
+.btn-download:hover {
+    background-color: #3f7c42; /* Змінюємо колір при наведенні */
+    color: #fff;
+}
+
+.btn-download img {
+    width: 24px; /* Розмір іконки */
+    height: 24px;
+    margin-right: 8px; /* Відступ від тексту */
+}
+
+/* Розташування кнопки зліва */
+.btn-container {
+    text-align: left;
+    align-content: end;
+}

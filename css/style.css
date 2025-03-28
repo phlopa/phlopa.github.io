@@ -278,3 +278,6 @@ footer .nav-link{
     text-align: left;
     align-content: end;
 }
+.contact-350 .form-group input{
+    max-width: 350px;
+}

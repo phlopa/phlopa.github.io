@@ -21,6 +21,136 @@ body {
 }
 /*--Header--*/
 /*bg*/
+
+
+
+
+
+@media (min-width: 1024px) {
+    /* Приховуємо бургер-меню на великих екранах */
+    header .navbar-toggle {
+        display: none;
+    }
+
+    header .nav-search {
+        text-align: right;
+    }
+
+    /* Навігація для великих екранів */
+    header .nav-links {
+        display: block; /* Відображення навігації на великих екранах */
+    }
+}
+/* Власний брейкпоінт на 1024px */
+@media (max-width: 1024px) {
+    /* Логотип і пошук на мобільному пристрої */
+    header .col-md-3 {
+        text-align: center;
+    }
+    
+    header .col-md-9 {
+        text-align: center;
+    }
+
+    /* Переміщуємо пошук під логотип */
+    header .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    header .search-input {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Навігація та бургер */
+    header .nav {
+        display: none;
+    }
+
+    header .navbar-toggle {
+        display: block;
+        align-items: right;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    header .navbar-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #324950;
+        margin: 4px auto;
+    }
+
+    header .nav-links {
+        display: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    header .nav-links.active {
+        display: block;
+    }
+
+    /* Стилі для бургерного меню */
+    header .nav-item {
+        padding: 1rem 0;
+    }
+    
+    /* Центруємо текст у банері */
+    header .banner-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+    }
+
+    header .banner-text h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #735440;
+    }
+
+    header .banner {
+        height: 650px; /* Зменшуємо висоту банера на мобільних */
+    }
+    header .nav-search {
+        text-align: center;
+    }
+}
+
+/* Бургер-меню */
+header .navbar-toggler {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+header .navbar-toggler-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    background: #324950;
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
 .baner {
     background: url('../images/bg.jpg') no-repeat center center;
     background-size: cover;
@@ -35,13 +165,19 @@ body {
 }
 .search-container {
     display: inline-block;
-    width: auto;
+    width: 255px;
+    max-width: 255px;
     border-bottom: 2px solid #324950; /* Лінія під полем пошуку та кнопкою */
+}
+.max-width-255 {
+    max-width: 255px;
 }
 .search-input {
     padding: 8px;
     padding-bottom: 0px;
-    width: auto; 
+    width: 201px; 
+    display: inline-block;
+    vertical-align: middle;
 }
 /*Підказка для пошуку*/
 .search-input::placeholder {
@@ -140,10 +276,11 @@ body {
     font-size: x-large;
 }
 /*Footer*/
+
 footer {
     background: #324950;
     color:#ffffff;
-  /*  padding-bottom: 2rem;*/
+
 }
 footer .nav-link{
     font-family: 'Heebo';
@@ -155,9 +292,13 @@ footer .nav-link{
 .contacts{
     background: #2d3f45;
     padding: 2rem;
+    
 }
 .cont{
     margin: 0px 17%;
+} 
+.min-width-270{
+    min-width: 270px;
 }
 /*----Tomato all----*/
 .bg-pink{

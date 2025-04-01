@@ -9,61 +9,83 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--css-->
         <link rel="stylesheet" href="css/style.css">
+        <!--Vue JS-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!--Main.js-->
+        <script src="js/main.js" defer></script>
+        
         <title>Agridera</title>
     </head>
     <body>
-        <!--Header-->
-        <header class="position-relative container-fluid baner"> <!--position-relative для banner-text position: absolute;-->
-            <!-- Верхня панель з лого, пошуком і навігацією -->
-            <div class="container py-3">
-                <div class="row">
-                    <div class="col-md-3 col-10 justify-content-center">
-                        <img src="images/Logo.png" class="img-fluid" alt="Logo">
-                    </div>
-                    <div class="col--">
-                        <!-- Кнопка-бургер -->
-                        <button class="navbar-toggle" id="burger-toggle">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-9 col-12 nav-search">
-                         
-                        <!-- Пошук -->
-                        <div class="search-container max-width-255">
-                            <form class="form-inline my-2 my-lg-0 d-inline-block">
-                                <input class="form-control search-input" type="search" placeholder="Search">
-                                <button class="btn search-btn" type="submit">
-                                    <img src="images/ico_search.png" alt="Search">
-                                </button>
-                            </form>
+        <div id="app1">
+            <!--Header-->
+            <header class="position-relative container-fluid baner"> <!--position-relative для banner-text position: absolute;-->
+                <!-- Верхня панель з лого, пошуком і навігацією -->
+                <div class="container py-3">
+                    <div class="row">
+                        <div class="col-md-3 col-10 justify-content-center">
+                            <img src="images/Logo.png" class="img-fluid" alt="Logo">
                         </div>
+                        <div class="col--">
+                            <!-- Кнопка-бургер -->
+                            <button class="navbar-toggle" @click.prevent="toggleMenu()">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </button>
+                        </div>
+                        <div class="col-md-9 col-12 nav-search">
+                            
+                            <!-- Пошук -->
+                            <div class="search-container max-width-255">
+                                <form class="form-inline my-2 my-lg-0 d-inline-block">
+                                    <input class="form-control search-input" type="search" placeholder="Search">
+                                    <button class="btn search-btn" type="submit">
+                                        <img src="images/ico_search.png" alt="Search">
+                                    </button>
+                                </form>
+                            </div>
 
-                        
+                            
 
-                        <!-- Навігація -->
-                        <nav class="mt-4">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
-                                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
+                            <!-- Навігація -->
+                            <nav class="mt-4">
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
+            
+                <!-- Контейнер для тексту -->
+                <div class="banner-text">
+                    <h1>Agridera Seeds and Agriculture Ltd</h1>
+                    <a href="#" class="btn btn-success">Read More</a>
+                </div>
+            </header>
+            <div class="menu"  v-if="isMenuOpen">
+                <div class="menu-content">
+                    <button class="close-btn" @click.prevent="toggleMenu()">×</button>
+                    <!-- Навігація -->
+                    <nav>
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        
-            <!-- Контейнер для тексту -->
-            <div class="banner-text">
-                <h1>Agridera Seeds and Agriculture Ltd</h1>
-                <a href="#" class="btn btn-success">Read More</a>
-            </div>
-        </header>
-        
+        </div>
 
 
 

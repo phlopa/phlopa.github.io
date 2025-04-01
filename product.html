@@ -9,137 +9,163 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--css-->
         <link rel="stylesheet" href="css/style.css">
-        <title>Tomato one</title>
+        <!--Vue JS-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!--Main.js-->
+        <script src="js/main.js" defer></script>
+
+        <title>Dill one</title>
     </head>
     <body class="tomato-bg">
-        <!--Header-->
-        <header class="bg-white container-fluid">
-            <!-- Верхня панель з лого, пошуком і навігацією -->
-            <div class="container py-3">
-                <div class="row">
-                    <div class="col-md-3 col-10 justify-content-center">
-                        <img src="images/Logo.png" class="img-fluid" alt="Logo">
-                    </div>
-                    <div class="col--">
-                        <!-- Кнопка-бургер -->
-                        <button class="navbar-toggle" id="burger-toggle">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-9 col-12 nav-search">
-                         
-                        <!-- Пошук -->
-                        <div class="search-container max-width-255">
-                            <form class="form-inline my-2 my-lg-0 d-inline-block">
-                                <input class="form-control search-input" type="search" placeholder="Search">
-                                <button class="btn search-btn" type="submit">
-                                    <img src="images/ico_search.png" alt="Search">
+        <div id="app1">
+            
+            <!--Header-->
+            <header class="bg-white container-fluid">
+                    <!-- Верхня панель з лого, пошуком і навігацією -->
+                    <div class="container py-3">
+                        <div class="row">
+                            <div class="col-md-3 col-10 justify-content-center">
+                                <img src="images/Logo.png" class="img-fluid" alt="Logo">
+                            </div>
+                            <div class="col--">
+                                <!-- Кнопка-бургер -->
+                                <button class="navbar-toggle" @click.prevent="toggleMenu()">
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
                                 </button>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="col-md-9 col-12 nav-search">
+                                
+                                <!-- Пошук -->
+                                <div class="search-container max-width-255">
+                                    <form class="form-inline my-2 my-lg-0 d-inline-block">
+                                        <input class="form-control search-input" type="search" placeholder="Search">
+                                        <button class="btn search-btn" type="submit">
+                                            <img src="images/ico_search.png" alt="Search">
+                                        </button>
+                                    </form>
+                                </div>
 
-                        
+                                
 
-                        <!-- Навігація -->
-                        <nav class="mt-4">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
-                                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!--Main-->
-        <div class="container my-3"><a class="card-text" href="products.html">⟵ Return to all tomatoes</a></div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="title-m">TAG 1002 (TAG 809)<br><span class="green">Tomato Determinate Red Standard Round</span></p>
-                    <p class="xxxxx mt-5">×××××</p>
-                    <div class="container pl-0">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-auto px-0 mx-0"><img src="images/tm_sert.png" class="img-fluid d-block" alt="Tomato"></div>
-                            <div class="col-9"><p class="red font-weight-bold" style="font-size: 30px; margin: 0px;">Very high yield and excellent fruits quality!</p></div>
+                                <!-- Навігація -->
+                                <nav class="mt-4">
+                                    <ul class="nav justify-content-end">
+                                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <h5 class="section-title mt-5">CHARACTERISTICS</h5>
-                        <p><b>Resistance</b>
-                        <br>HR: ToMV:0-2; Fol: 1,2; Ve/Vd;    
-                        <br>IR: TYLCV</p>  
-                    </div>
-                      
-                        
+            </header>
+            <div class="menu"  v-if="isMenuOpen">
+                <div class="menu-content">
+                    <button class="close-btn" @click.prevent="toggleMenu()">×</button>
+                    <!-- Навігація -->
+                    <nav>
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
-                
-                <div class="col">
-                    <img src="images/content_tomato.jpg" class="img-fluid" alt="Tomato">
-                    <div class="container mt-4">
-                        <div class="d-flex justify-content-end">
-                            <a href="#" class="btn btn-download">
-                                <img src="images/ico_pdf.png" alt="PDF Icon"> Download PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                    
-                
-                
             </div>
         </div>
-        <div class="container charact">
-            <div class="row">
-              <!-- Перша колонка -->
-              <div class="col-md-6">
-                <div class="mb-4">
-                    <h5 class="section-title">Plant</h5>
-                    <ul>
-                    <li>Strong vigor that provides good leaf coverage.</li>
-                    <li>Very high productivity with good fruit setting.</li>
-                    <li>Early matured variety.</li>
-                    </ul>
+
+        <!--Main-->
+        <div class="container my-3"><a class="card-text" href="products.html">⟵ Return to all dills</a></div>
+        <div id="app">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="title-m">{{product.title}}<br><span class="green">{{product.short_text}}</span></p>
+                        <p class="xxxxx mt-5">×××××</p>
+                        <div class="container pl-0">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-auto px-0 mx-0"><img src="images/tm_sert.png" class="img-fluid d-block" alt="Tomato"></div>
+                                <div class="col-9"><p class="red font-weight-bold" style="font-size: 30px; margin: 0px;">Very high yield and excellent leafs quality!</p></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="section-title mt-5">CHARACTERISTICS</h5>
+                            <p>{{product.desc}}</p>
+                        </div>
+                        
+                            
+                    </div>
+                    
+                    <div class="col">
+                        <img :src="'img/'+product.image" class="img-fluid" alt="Tomato">
+                        <div class="container mt-4">
+                            <div class="d-flex justify-content-end">
+                                <a href="#" class="btn btn-download" @click.prevent="addToCart(product.id)" v-if="!btnVisible">
+                                    <img src="images/ico_pdf.png" alt="PDF Icon"> Add to cart
+                                </a>
+                                <a href="contact.html" class="btn btn-download" v-if="btnVisible">
+                                    <img src="images/ico_pdf.png" alt="PDF Icon"> Go to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    
+                    
                 </div>
-                
-                <div class="mb-4">
-                    <h5 class="section-title">Fruit</h5>
-                    <ul>
-                    <li>Long shelf life on plant and post-harvest.</li>
-                    <li>Nice shiny attractive deep red color.</li>
-                    <li>Average fruit size: 140 – 160 grams.</li>
-                    </ul>
-                </div>
-                
-              </div>
-          
-              <!-- Друга колонка -->
-              <div class="col-md-6">
-                <div class="mb-4">
-                    <h5 class="section-title">Cycle</h5>
-                    <ul>
-                      <li>Spring</li>
-                      <li>Fall</li>
-                      <li>Winter</li>
-                    </ul>
-                </div>
-                
-                <div class="mb-4">
-                    <h5 class="section-title">Color</h5>
-                    <p>Red</p>
-                </div>
-                
-              </div>
             </div>
-          </div>
-          
+            <div class="container charact">
+                <div class="row">
+                <!-- Перша колонка -->
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <h5 class="section-title">Plant</h5>
+                        <ul>
+                        <li>Strong vigor that provides good leaf coverage.</li>
+                        <li>Very high productivity with good fruit setting.</li>
+                        <li>Early matured variety.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="section-title">Fruit</h5>
+                        <ul>
+                        <li>Long shelf life on plant and post-harvest.</li>
+                        <li>Nice shiny attractive deep red color.</li>
+                        <li>Average fruit size: 140 – 160 grams.</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            
+                <!-- Друга колонка -->
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <h5 class="section-title">Cycle</h5>
+                        <ul>
+                        <li>Spring</li>
+                        <li>Fall</li>
+                        <li>Winter</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="section-title">Color</h5>
+                        <p>Green</p>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        </div>
         <!--footer-->
         <footer>
             <div class="container-fluid contacts">

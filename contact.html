@@ -9,54 +9,78 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--css-->
         <link rel="stylesheet" href="css/style.css">
+        <!--Vue JS-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!--Main.js-->
+        <script src="js/main.js" defer></script>
+        
         <title>Contact us</title>
     </head>
     <body>
-        <!--Header-->
-        <header class="bg-white container-fluid">
-            <!-- Верхня панель з лого, пошуком і навігацією -->
-            <div class="container py-3">
-                <div class="row">
-                    <div class="col-md-3 col-10 justify-content-center">
-                        <img src="images/Logo.png" class="img-fluid" alt="Logo">
-                    </div>
-                    <div class="col--">
-                        <!-- Кнопка-бургер -->
-                        <button class="navbar-toggle" id="burger-toggle">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-9 col-12 nav-search">
-                         
-                        <!-- Пошук -->
-                        <div class="search-container max-width-255">
-                            <form class="form-inline my-2 my-lg-0 d-inline-block">
-                                <input class="form-control search-input" type="search" placeholder="Search">
-                                <button class="btn search-btn" type="submit">
-                                    <img src="images/ico_search.png" alt="Search">
+        <div id="app1">
+            
+            <!--Header-->
+            <header class="bg-white container-fluid">
+                    <!-- Верхня панель з лого, пошуком і навігацією -->
+                    <div class="container py-3">
+                        <div class="row">
+                            <div class="col-md-3 col-10 justify-content-center">
+                                <img src="images/Logo.png" class="img-fluid" alt="Logo">
+                            </div>
+                            <div class="col--">
+                                <!-- Кнопка-бургер -->
+                                <button class="navbar-toggle" @click.prevent="toggleMenu()">
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
                                 </button>
-                            </form>
+                            </div>
+                            <div class="col-md-9 col-12 nav-search">
+                                
+                                <!-- Пошук -->
+                                <div class="search-container max-width-255">
+                                    <form class="form-inline my-2 my-lg-0 d-inline-block">
+                                        <input class="form-control search-input" type="search" placeholder="Search">
+                                        <button class="btn search-btn" type="submit">
+                                            <img src="images/ico_search.png" alt="Search">
+                                        </button>
+                                    </form>
+                                </div>
+
+                                
+
+                                <!-- Навігація -->
+                                <nav class="mt-4">
+                                    <ul class="nav justify-content-end">
+                                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-
-                        
-
-                        <!-- Навігація -->
-                        <nav class="mt-4">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
-                                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
                     </div>
+            </header>
+            <div class="menu"  v-if="isMenuOpen">
+                <div class="menu-content">
+                    <button class="close-btn" @click.prevent="toggleMenu()">×</button>
+                    <!-- Навігація -->
+                    <nav>
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">R & D</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-        </header>
+        </div>
         <!--header image-->
         <div class="container-fluid px-0">
             <img src="images/fieldheader.jpg" class="img-fluid" alt="header">

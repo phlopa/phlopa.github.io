@@ -85,81 +85,113 @@
         <div class="container-fluid px-0">
             <img src="images/fieldheader.jpg" class="img-fluid" alt="header">
         </div>
+        <div id="app">
+            <!--Contuct Us-->
+            <!--title-->
+            <div class="container py-5">
+                <h3 class="title-s">Your cart</h3>
+                <p class="xxxxx">×××××</p>
+            </div>
+            <!--Cart-->
+            <div class="container">
+                <h2>Shopping Cart</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Short Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in cart" :key="item.id">
+                            <td><img :src="'img/'+item.image" alt="product" width="50"></td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.short_text }}</td>
+                            <td>
+                                <button class="close-btn" @click.prevent="removeFromCart(item.id)">×</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p v-if="cart.length === 0">Cart is empty</p>
+            </div>
 
-        <!--Contuct Us-->
-        <!--title-->
-        <div class="container py-5">
-            <h3 class="title-s">Contact us</h3>
-            <p class="xxxxx">×××××</p>
-        </div>
-        <!--form-->
-        <div class="container">
-            <form>
-                <div class="row">
-                    <!-- Ліва колонка -->
-                    <div class="col-md-6 pr-5 contact-350">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" class="form-control" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" class="form-control" id="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="position">Position</label>
-                            <input type="text" class="form-control" id="position">
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city">
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" class="form-control" id="country">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telephone</label>
-                            <input type="tel" class="form-control" id="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                    </div>
-        
-                    <!-- Права колонка -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="role">You are a</label>
-                            <select class="form-control" id="role">
-                                <option>Seed producer</option>
-                                <option>Distributor</option>
-                                <option>Retailer</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="other">If other, please specify</label>
-                            <input type="text" class="form-control" id="other">
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">You are interested in</label>
-                            <textarea class="form-control" id="interest" rows="9"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Please type this code</label>
-                            <div class="d-flex align-items-center">
-                                <span class="mr-3 font-italic font-weight-bold">7 C J 3</span>
-                                <input type="text" class="form-control w-25">
+
+            <!--form-->
+            <div class="container">
+                <form @submit.prevent="makeOrder" v-if="!orderPlaced">
+                    <div class="row">
+                        <!-- Ліва колонка -->
+                        <div class="col-md-6 pr-5 contact-350">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" v-model="contactFields.name" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" v-model="contactFields.company" class="form-control" id="company">
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Position</label>
+                                <input type="text" v-model="contactFields.position" class="form-control" id="position">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" v-model="contactFields.city" class="form-control" id="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" v-model="contactFields.country" class="form-control" id="country">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telephone</label>
+                                <input type="tel" v-model="contactFields.tel" class="form-control" id="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" v-model="contactFields.email" class="form-control" id="email" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success">Send Message</button>
+            
+                        <!-- Права колонка -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="role">You are a</label>
+                                <select class="form-control" id="role">
+                                    <option>Seed producer</option>
+                                    <option>Distributor</option>
+                                    <option>Retailer</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="other">If other, please specify</label>
+                                <input type="text" class="form-control" id="other">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">You are interested in</label>
+                                <textarea class="form-control" id="interest" rows="9"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Please type this code</label>
+                                <div class="d-flex align-items-center">
+                                    <span class="mr-3 font-italic font-weight-bold">7 C J 3</span>
+                                    <input type="text" class="form-control w-25" placeholder="7CJ3">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Send Message</button>
+                        </div>
                     </div>
+                </form>
+                <div v-if="orderPlaced">
+                    <h2>Order Placed!</h2>
+                    <p>Thank you for your order, {{ contactFields.name }}!</p>
+                    <p>Order details were sent to {{ contactFields.email }}</p>
                 </div>
-            </form>
+            </div>
         </div>
-
 
 
 

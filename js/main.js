@@ -8,6 +8,9 @@ var app = new Vue({
             {id:5,title:"Dill \"Herkules\"",short_text:'Tall variety with large, fragrant leaves',image:'../img/herkules.jpg', desc:"Dill 'Herkules' is a tall-growing variety with large, juicy leaves."},
         ],
         product:{},
+        cart:[],
+        contactFields: { name: '', email: '', company: '', position: '', city: '', country: '', tel: '' }, // Масив для контактних даних
+        orderPlaced: false, // Чи зроблено замовлення
         btnVisible: false
     },
     methods:{
@@ -38,11 +41,44 @@ var app = new Vue({
         checkCart:function(){
             if(this.product && this.product.id && window.localStorage.getItem('cart').split(',').indexOf(String(this.product.id))!=-1) this.btnVisible=true;
             console.log('Cart IDs:', window.localStorage.getItem('cart'))
+        },
+        getCart: function () {
+            this.cart = []; // Очищаємо перед оновленням
+            var cartIds = window.localStorage.getItem('cart') ? window.localStorage.getItem('cart').split(',') : [];
+            
+            for (let id of cartIds) {
+                let product = this.products.find(p => p.id == id);
+                if (product) {
+                    this.cart.push(product);
+                }
+            }
+            console.log('Products in Cart:', this.cart);
+        },
+        removeFromCart: function (id) {
+            var cartIds = window.localStorage.getItem('cart') ? window.localStorage.getItem('cart').split(',') : [];
+            cartIds = cartIds.filter(cartId => cartId != id); // Видаляємо товар
+            
+            window.localStorage.setItem('cart', cartIds.join()); // Оновлюємо `localStorage`
+            this.getCart(); // Перезавантажуємо кошик
+        },
+        makeOrder:function(){
+            if (!this.contactFields.name.trim() || !this.contactFields.email.trim()) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+            console.log("Order Details:", this.contactFields);
+            console.log("Ordered Products:", this.cart);
+        
+            this.cart = [];
+            localStorage.removeItem('cart');
+        
+            this.orderPlaced = true;
         }
     },
     mounted:function(){
         this.getProduct();
         this.checkCart();
+        this.getCart();
     }
 
 });

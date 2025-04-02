@@ -142,15 +142,8 @@ body {
         width: 100%;
     }
     
-    /* Кнопка закриття (хрестик) зліва */
     .close-btn {
-        background: transparent;
-        border: none;
-        font-size: 30px;
-        font-weight: bold;
         color: white;
-        cursor: pointer;
-        margin-bottom: 20px;
     }
     
     /* Вертикальна навігація */
@@ -176,6 +169,16 @@ body {
         padding-left: 10px;
         
     }
+}
+/* Кнопка закриття (хрестик) зліва */
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #324950;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
 
